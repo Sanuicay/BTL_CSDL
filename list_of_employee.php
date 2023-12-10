@@ -11,7 +11,10 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Trang chủ</title>
+	<!-- Title Tag  -->
+    <title>Eshop</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/table.css">
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="css_homepage/bootstrap.css">
@@ -46,21 +49,9 @@ session_start();
         text-decoration: none;
     }
 
-    /* visited link */
-    a:visited {
-        color: pink;
-        text-decoration: none;
-    }
-
     /* mouse over link */
     a:hover {
         color: red;
-        text-decoration: underline;
-    }
-
-    /* selected link */
-    a:active {
-        color: yellow;
         text-decoration: underline;
     }
 
