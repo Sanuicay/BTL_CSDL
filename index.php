@@ -10,14 +10,14 @@ session_start();
 	$current_month = 3;
 
 	//call a procedure to update the the table bestsellingproductbycategoryandmonth (with ProductID, ProductName, ImageUrl)
-	$query = "CALL update_best_selling_product_by_category_and_month($current_year, $current_month)";
+	$query = "CALL BestSellingProductByCategoryAndMonth($current_year, $current_month)";
 	$result = mysqli_query($con,$query);
-
-	$query = "SELECT p.SalePrice, b.ProductName, b.ImageUrl
-		      FROM bestsellingproductbycategoryandmonth b, product p
-			  WHERE b.ProductID = p.ProductID";
-	$result = mysqli_query($con,$query);
-	$row = mysqli_fetch_assoc($result);
+	//print each product
+	// while($row = mysqli_fetch_assoc($result))
+	// {
+	// 	echo "<img src='images/".$row['ImageUrl']."'>";
+	// 	echo "<p>".$row['ProductName']."</p>";
+	// }
 
 
 
@@ -1878,118 +1878,7 @@ session_start();
             <div class="row">
                 <div class="col-12">
                     <div class="owl-carousel popular-slider">
-						<?php
-							//don't do old price or new or hot
-							while ($row = mysqli_fetch_array($result)) {
-								echo "<div class='single-product'>
-									<div class='product-img'>
-										<a href='#'>
-											<img class='default-img' src='images/".$row['ImageURL']."' alt='#'>
-											<img class='hover-img' src='images/".$row['ImageURL']."' alt='#'>
-										</a>
-										<div class='button-head'>
-											<div class='product-action'>
-												<a data-toggle='modal' data-target='#exampleModal' title='Quick View' href='#'><i class=' ti-eye'></i><span>Mua ngay</span></a>
-												<a title='Wishlist' href='#'><i class=' ti-heart '></i><span>Yêu thích</span></a>
-												<a title='Compare' href='#'><i class='ti-bar-chart-alt'></i><span>Thêm vào so sánh</span></a>
-											</div>
-											<div class='product-action-2'>
-												<a title='Add to cart' href='#'>Thêm vào giỏ hàng</a>
-											</div>
-										</div>
-									</div>
-									<div class='product-content'>
-										<h3><a href='#'>".$row['ProductName']."</a></h3>
-										<div class='product-price'>
-											<span>".$row['SalePrice']."</span>
-										</div>
-									</div>
-								</div>";
-							}
-						?>
-						<!-- Start Single Product -->
-						<!-- <div class="single-product">
-							<div class="product-img">
-								<a href="#">
-									<img class="default-img" src="images/dienthoai.png" alt="#">
-									<img class="hover-img" src="images/dienthoai.png" alt="#">
-									<span class="out-of-stock">Hot</span>
-								</a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Mua ngay</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Yêu thích</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Thêm vào so sánh</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-							</div>
-							<div class="product-content">
-								<h3><a href="#">Điện thoại</a></h3>
-								<div class="product-price">
-									<span class="old">$60.00</span>
-									<span>$50.00</span>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
-                            <div class="product-img">
-                                <a href="#">
-                                    <img class="default-img" src="images/laptop.png" alt="#">
-                                    <img class="hover-img" src="images/laptop.png" alt="#">
-                                </a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Mua ngay</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Yêu thích</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Thêm vào so sánh</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Laptop</a></h3>
-                                <div class="product-price">
-                                    <span>$50.00</span>
-                                </div>
-                            </div>
-                        </div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
-                            <div class="product-img">
-                                <a href="#">
-                                    <img class="default-img" src="images/tivi.png" alt="#">
-                                    <img class="hover-img" src="images/tivi.png" alt="#">
-									<span class="new">New</span>
-                                </a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Mua ngay</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Yêu thích</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Thêm vào so sánh</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Tivi</a></h3>
-                                <div class="product-price">
-                                    <span>$50.00</span>
-                                </div>
-                            </div>
-                        </div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
+					<!-- <div class="single-product">
                             <div class="product-img">
                                 <a href="#">
                                     <img class="default-img" src="images/maygiat.png" alt="#">
@@ -2012,86 +1901,40 @@ session_start();
                                     <span>$50.00</span>
                                 </div>
                             </div>
-                        </div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
-                            <div class="product-img">
-                                <a href="#">
-                                    <img class="default-img" src="images/noicomdien.png" alt="#">
-                                    <img class="hover-img" src="images/noicomdien.png" alt="#">
-                                </a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Mua ngay</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Yêu thích</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Thêm vào so sánh</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Nồi cơm điện</a></h3>
-                                <div class="product-price">
-                                    <span>$50.00</span>
-                                </div>
-                            </div>
-                        </div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
-                            <div class="product-img">
-                                <a href="#">
-                                    <img class="default-img" src="images/tulanh.png" alt="#">
-                                    <img class="hover-img" src="images/tulanh.png" alt="#">
-                                </a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Mua ngay</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Yêu thích</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Thêm vào so sánh</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Tủ lạnh</a></h3>
-                                <div class="product-price">
-                                    <span>$50.00</span>
-                                </div>
-                            </div>
-                        </div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
-                            <div class="product-img">
-                                <a href="#">
-                                    <img class="default-img" src="images/dieuhoa.png" alt="#">
-                                    <img class="hover-img" src="images/dieuhoa.png" alt="#">
-                                </a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Mua ngay</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Yêu thích</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Thêm vào so sánh</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Điều hòa</a></h3>
-                                <div class="product-price">
-                                    <span>$50.00</span>
-                                </div>
-                            </div>
                         </div> -->
-						<!-- End Single Product -->
+						<?php
+							$query = "SELECT p.SalePrice, b.ProductName, b.ImageUrl
+									  FROM bestsellingproductbycategoryandmonth_result b, product p
+									  WHERE b.ProductID = p.ProductID";
+				 			$result = mysqli_query($con,$query);
+							//using data from $result, $row['ProductName'], $row['ProductPrice'], $row['ImageURL']
+							while ($row = mysqli_fetch_array($result)){
+								echo "<div class='single-product'>
+										<div class='product-img'>
+											<a href='#'>
+												<img class='default-img' src='".$row['ImageUrl']."' alt='#'>
+												<img class='hover-img' src='".$row['ImageUrl']."' alt='#'>
+											</a>
+											<div class='button-head'>
+												<div class='product-action'>
+													<a data-toggle='modal' data-target='#exampleModal' title='Quick View' href='#'><i class=' ti-eye'></i><span>Mua ngay</span></a>
+													<a title='Wishlist' href='#'><i class=' ti-heart '></i><span>Yêu thích</span></a>
+													<a title='Compare' href='#'><i class='ti-bar-chart-alt'></i><span>Thêm vào so sánh</span></a>
+												</div>
+												<div class='product-action-2'>
+													<a title='Add to cart' href='#'>Thêm vào giỏ hàng</a>
+												</div>
+											</div>
+										</div>
+										<div class='product-content'>
+											<h3><a href='#'>".$row['ProductName']."</a></h3>
+											<div class='product-price'>
+												<span>".$row['SalePrice']."</span>
+											</div>
+										</div>
+									</div>";
+							}
+						?>
                     </div>
                 </div>
             </div>

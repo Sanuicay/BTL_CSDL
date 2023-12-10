@@ -683,4 +683,46 @@ INSERT INTO OrderDetails (OrderDetailsID, OrderID, ProductID, Quantity) VALUES
 
 -- ...Continue with similar INSERT statements for the Television, Phone, Laptop, Refrigerator, AirConditioner, WashingMachine, RiceCooker, PurchaseOrder, and SaleOrder tables.
 
-
+-- Procedure to get the best selling product by category and month
+DELIMITER //
+DROP PROCEDURE IF EXISTS BestSellingProductByCategoryAndMonth //
+CREATE PROCEDURE BestSellingProductByCategoryAndMonth(IN p_Year INT, IN p_Month INT)
+BEGIN
+    DELETE FROM BestSellingProductByCategoryAndMonth_Result;
+    INSERT INTO BestSellingProductByCategoryAndMonth_Result
+    SELECT 
+        ProductID,
+        ProductName,
+        ImageURL
+    FROM (
+        SELECT
+            p.ProductID,
+            p.ProductName,
+            p.ImageURL,
+            SUM(od.Quantity) AS total_quantity,
+            RANK() OVER (PARTITION BY SUBSTRING(p.ProductID, 1, 3) ORDER BY SUM(od.Quantity) DESC) as rank
+        FROM
+            Product p
+        JOIN OrderDetails od ON p.ProductID = od.ProductID
+        JOIN Orders o ON od.OrderID = o.OrderID
+        WHERE
+            YEAR(o.CreationDate) = p_Year
+            AND MONTH(o.CreationDate) = p_Month
+            AND o.OrderID LIKE 'ORS%'
+            AND (
+                (p.ProductID LIKE 'TLV%')
+                OR (p.ProductID LIKE 'LAP%')
+                OR (p.ProductID LIKE 'PHN%')
+                OR (p.ProductID LIKE 'FRG%')
+                OR (p.ProductID LIKE 'ACN%')
+                OR (p.ProductID LIKE 'WSH%')
+                OR (p.ProductID LIKE 'RCK%')
+            )
+        GROUP BY
+            p.ProductID,
+            p.ProductName,
+            p.ImageURL
+    ) AS subquery
+    WHERE rank = 1;
+END //
+DELIMITER ;
