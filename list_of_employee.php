@@ -83,6 +83,50 @@ session_start();
         background-color: #4CAF50;
         color: white;
     }
+
+    input[type="text"] {
+        float: left;
+        width: 200px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: white;
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 5px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+        margin-left: 90px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+    input[type="button"] {
+        float: right;
+        margin-top:10px;
+        margin-right: 90px;
+        background-color: #4CAF50; 
+        color: white; 
+        padding: 5px; 
+        border: none; 
+        cursor: pointer; 
+        width: 200px;
+    }
+    input[type="radio"] {
+        margin-top: 10px;
+        margin-right: 30px;
+    }
+    input[type="submit"] {
+        margin-top:10px;
+        margin-right: 90px;
+        background-color: #4CAF50; 
+        color: white; 
+        padding: 5px; 
+        margin: 8px 0; 
+        border: none; 
+        cursor: pointer; 
+        width: 100px;
+    }
 </style>
 <body>
     <header class="header shop">
@@ -122,36 +166,7 @@ session_start();
                                 <a href="list_of_employee.php" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                             </div>
                             <div class="sinlge-bar shopping">
-                                <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
-                                <!-- Shopping Item -->
-                                <div class="shopping-item">
-                                    <div class="dropdown-cart-header">
-                                        <span>2 Sản phẩm</span>
-                                        <a href="#">Xem giỏ hàng</a>
-                                    </div>
-                                    <ul class="shopping-list">
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="images/dienthoai.png" alt="#"></a>
-                                            <h4><a href="#">Điện thoại</a></h4>
-                                            <p class="quantity">1x - <span class="amount">$99.00</span></p>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="images/tivi.png" alt="#"></a>
-                                            <h4><a href="#">Tivi</a></h4>
-                                            <p class="quantity">1x - <span class="amount">$35.00</span></p>
-                                        </li>
-                                    </ul>
-                                    <div class="bottom">
-                                        <div class="total">
-                                            <span>Tổng</span>
-                                            <span class="total-amount">$134.00</span>
-                                        </div>
-                                        <a href="#" class="btn animate">Thanh toán</a>
-                                    </div>
-                                </div>
-                                <!--/ End Shopping Item -->
+                                <a href="#" class="single-icon"><i class="ti-bag"></i></a>
                             </div>
                             <div class="sinlge-bar">
                                 <!-- login button -->
@@ -168,21 +183,19 @@ session_start();
     <div class="search-container">
         <br>
         <form id="searchForm" method="post">
-            <input type="text" id="search" name="search">
+            <input type="text" id="search" placeholder="Tìm kiếm" name="search">
             <!-- add a tick box -->
             <label for="sortbyName">Sắp xếp theo: ID</label>
             <input type="radio" id="sortbyID" name="sortby" value="ID" checked>
             <label for="sortbyDate">Ngày vào làm</label>
             <input type="radio" id="sortbyDate" name="sortby" value="Date">
-            <label for="sortbystatus">Status</label>
+            <label for="sortbystatus">Trạng thái</label>
             <input type="radio" id="sortbystatus" name="sortby" value="Status">
             <label for="sortby">Quản lý</label>
             <input type="radio" id="sortby" name="sortby" value="SuperiorName">
-
-            <input type="submit" value="Submit">
-        </form>
-        <div class="button-container">
+            <input type="submit" value="Xác nhận">
             <a href="add_new_employee.php"><input type="button" value="Thêm nhân viên"></a>
+        </form>
         </div>
     </div>
     <div id="employeeTable"></div>
