@@ -155,7 +155,20 @@ if (isset($_POST['change2']))
     <link rel="stylesheet" href="css/user.css">
     <link rel="stylesheet" href="css/add_new_employee.css">
 </head>
-
+<style>
+    select {
+        width: 100%;
+        padding: 10px 30px 10px 10px; /* Top, Right, Bottom, Left */
+        margin-left: 0px;
+        border: 1px solid #ccc;
+        border-radius: 40px;
+        background-color: #ffffff;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><path d='M6,9l4,4,4-4' stroke='%23000000' stroke-width='2' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 10px center; /* Position of the arrow */
+        appearance: none; /* Remove default appearance */
+    }
+</style>
 <body>
     <header class="header shop">
         <div class="middle-inner">
@@ -248,7 +261,7 @@ if (isset($_POST['change2']))
                     ?>
 
                     <!-- Người quản lý -->
-                    <label for='superiorID'>ID Quản lý:</label><br>
+                    <label for='superiorID'>ID Quản lý:</label>
                     <select id='superiorID' name='superiorID'>
                     <?php
                     $query = "SELECT e.EmployeeID, CONCAT(a.FirstName, ' ', a.LastName) AS EmployeeName
@@ -323,22 +336,8 @@ if (isset($_POST['change2']))
                     <!-- Mật khẩu cũ -->
                     <div class="form-group">
                         <label for="old-password">Mật Khẩu Cũ:</label><br>
-                        <input type="password" id="old-password" name="old-password" value="<?php echo $row_employee['Password']; ?>" readonly>
-                        <input type="checkbox" onclick="ShowPassword()">
+                        <?php echo "<input type='text' id='old-password' name='old-password' value='$row_employee[Password]' readonly><br>"; ?>
                     </div>
-
-                    <!-- JavaScript của mật khẩu cũ-->
-                    <script>
-                    function ShowPassword() {
-                        var x = document.getElementById("old-password");
-                        if (x.type === "password") {
-                            x.type = "text";
-                        } else {
-                            x.type = "password";
-                        }
-                    }
-                    </script>
-
                     <!-- Mật khẩu mới -->
                     <br>
                     <div class="form-group">

@@ -94,7 +94,7 @@ session_start();
     }
     input[type="button"] {
         float: right;
-        margin-top:10px;
+        margin-top:8px;
         margin-right: 90px;
         background-color: #4CAF50; 
         color: white; 
@@ -105,7 +105,7 @@ session_start();
     }
     input[type="radio"] {
         margin-top: 10px;
-        margin-right: 30px;
+        margin-right: 20px;
     }
     input[type="submit"] {
         margin-top:10px;
