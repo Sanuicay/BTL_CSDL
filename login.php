@@ -51,7 +51,9 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Eshop</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
 	<style type="text/css">
 		body {
 			font-family: Arial, sans-serif;
