@@ -11,7 +11,10 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Trang chủ</title>
+	<!-- Title Tag  -->
+    <title>Eshop</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/table.css">
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="css_homepage/bootstrap.css">
