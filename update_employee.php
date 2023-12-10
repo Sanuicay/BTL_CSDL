@@ -5,13 +5,6 @@ $employeeID = $_GET['id'];
 //turn to string
 $employeeID = strval($employeeID);
 //if change1 button is pressed, update the user info (ignore the blank input)
-
-// SELECT e.EmployeeID, e.FirstName, e.LastName, e.Email, e.PhoneNumber, e.StartDate, e.Status, e.SuperiorID, a.Username, a.Password, CONCAT(sa.FirstName, ' ', sa.LastName) AS SuperiorName
-// FROM Employee e
-// INNER JOIN Account a ON e.EmployeeID = a.AccountID
-// LEFT JOIN Employee s ON e.SuperiorID = s.EmployeeID
-// LEFT JOIN Account sa ON s.EmployeeID = sa.AccountID;
-
 $query_employee = "SELECT e.EmployeeID, a.FirstName, a.LastName, a.Email, a.PhoneNumber, e.StartDate, e.Status, e.SuperiorID, a.Username, a.Password, CONCAT(sa.FirstName, ' ', sa.LastName) AS SuperiorName
                    FROM Employee e
                    INNER JOIN Account a ON e.EmployeeID = a.AccountID
@@ -122,99 +115,6 @@ if (isset($_POST['change2']))
         echo "<script>alert('Vui lòng nhập mật khẩu mới và xác nhận mật khẩu!');</script>";
     }
 }
-
-
-
-// if (isset($_POST['change1']))
-// {
-//     $ho = $_POST['ho'];
-//     $ten = $_POST['ten'];
-//     $email = $_POST['email'];
-//     $phone = $_POST['phone'];
-//     $info = $_POST['info'];
-//     $employee_status = $_POST['status'];
-//     if ($ho != "")
-//     {
-//         $query = "UPDATE user
-//                   SET sur_name = '$ho'
-//                   WHERE ID = $employeeID;";
-//         $result = mysqli_query($con,$query);
-//     }
-//     if ($ten != "")
-//     {
-//         $query = "UPDATE user
-//                   SET last_name = '$ten'
-//                   WHERE ID = $employeeID;";
-//         $result = mysqli_query($con,$query);
-//     }
-//     if ($email != "")
-//     {
-//         $query = "UPDATE user
-//                   SET email = '$email'
-//                   WHERE ID = $employeeID;";
-//         $result = mysqli_query($con,$query);
-//     }
-//     if ($phone != "")
-//     {
-//         $query = "UPDATE user
-//                   SET phone_num = '$phone'
-//                   WHERE ID = $employeeID;";
-//         $result = mysqli_query($con,$query);
-//     }
-//     if ($info != "")
-//     {
-//         $query = "UPDATE user
-//                   SET user_info = '$info'
-//                   WHERE ID = $employeeID;";
-//         $result = mysqli_query($con,$query);
-//     }
-//     if ($employee_status != "")
-//     {
-//         $query = "UPDATE employee
-//                   SET employee_status = '$employee_status'
-//                   WHERE ID = $employeeID;";
-//         $result = mysqli_query($con,$query);
-//     }
-//     header("Location: update_employee.php?id=$employeeID");
-// }
-
-//if change2 button is pressed, update the password, we don't need to check if the old password is correct or not
-// if (isset($_POST['change2']))
-// {
-//     $new_password = $_POST['new-password'];
-//     $confirm_password = $_POST['confirm-password'];
-//     //check null
-//     if ($new_password != "" && $confirm_password != "")
-//     {
-//         //check if the new password and confirm password are the same
-//         if ($new_password == $confirm_password)
-//         {
-//             if ($new_password == $row_employee['password'])
-//             {
-//                 echo "<script>alert('Mật khẩu mới không được trùng với mật khẩu cũ!');</script>";
-//             }
-//             else
-//             {
-//                 $query = "UPDATE user
-//                           SET password = '$new_password'
-//                           WHERE ID = $employeeID;";
-//                 $result = mysqli_query($con,$query);
-
-//                 echo "<script>alert('Thay đổi mật khẩu thành công!');</script>";
-//                 sleep(1);
-//                 echo "<script>window.location.href = 'update_employee.php?id=$employeeID';</script>";
-//             }
-//         }
-//         else
-//         {
-//             echo "<script>alert('Mật khẩu mới và xác nhận mật khẩu không khớp!');</script>";
-//         }
-//     }
-//     else
-//     {
-//         echo "<script>alert('Vui lòng nhập mật khẩu mới và xác nhận mật khẩu!');</script>";
-//     }
-// }
 
 ?>
 

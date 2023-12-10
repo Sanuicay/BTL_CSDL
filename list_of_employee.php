@@ -46,21 +46,9 @@ session_start();
         text-decoration: none;
     }
 
-    /* visited link */
-    a:visited {
-        color: pink;
-        text-decoration: none;
-    }
-
     /* mouse over link */
     a:hover {
         color: red;
-        text-decoration: underline;
-    }
-
-    /* selected link */
-    a:active {
-        color: yellow;
         text-decoration: underline;
     }
 
