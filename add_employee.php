@@ -7,55 +7,118 @@ include("functions.php");
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-	<title>My website</title>
+	<!-- Title Tag  -->
+    <title>Eshop</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/table.css">
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="css_homepage/bootstrap.css">
+	<!-- Magnific Popup -->
+    <link rel="stylesheet" href="css_homepage/magnific-popup.min.css">
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="css_homepage/font-awesome.css">
+	<!-- Fancybox -->
+	<link rel="stylesheet" href="css_homepage/jquery.fancybox.min.css">
+	<!-- Themify Icons -->
+    <link rel="stylesheet" href="css_homepage/themify-icons.css">
+	<!-- Nice Select CSS -->
+    <link rel="stylesheet" href="css_homepage/niceselect.css">
+	<!-- Animate CSS -->
+    <link rel="stylesheet" href="css_homepage/animate.css">
+	<!-- Flex Slider CSS -->
+    <link rel="stylesheet" href="css_homepage/flex-slider.min.css">
+	<!-- Owl Carousel -->
+    <link rel="stylesheet" href="css_homepage/owl-carousel.css">
+	<!-- Slicknav -->
+    <link rel="stylesheet" href="css_homepage/slicknav.min.css">
+	
+	<!-- Eshop StyleSheet -->
+	<link rel="stylesheet" href="css_homepage/reset.css">
+	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css_homepage/responsive.css">
+
     <link rel="stylesheet" href="css/user.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/style_duong.css">
-    <link rel="stylesheet" href="css/cover-box.css">
     <link rel="stylesheet" href="css/add_new_employee.css">
 </head>
+<style>
+    select {
+        width: 100%;
+        padding: 10px 30px 10px 10px; /* Top, Right, Bottom, Left */
+        margin-left: 0px;
+        border: 1px solid #ccc;
+        border-radius: 40px;
+        background-color: #ffffff;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><path d='M6,9l4,4,4-4' stroke='%23000000' stroke-width='2' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 10px center; /* Position of the arrow */
+        appearance: none; /* Remove default appearance */
+    }
+    input[type="submit"]{
+        width: 100%;
+        background-color: #F9F1E7;
+        color: black;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 0px;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+</style>
 <body>
-    <!-- header -->
-    <div class="header">
-        <div class="header-left-section">
-            <a href="index.html"><img class="header-logo" src="img/logo_DABM.png" alt="Logo"></a>
+    <header class="header shop">
+        <div class="middle-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-12">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.php"><img src="images/logo.png" alt="logo"></a>
+                        </div>
+                        <!--/ End Logo -->
+                        <!-- Search Form -->
+                        <div class="search-top">
+                            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+                            <!-- Search Form -->
+                            <div class="search-top">
+                                <form class="search-form">
+                                    <input type="text" placeholder="Tìm kiếm tại đây..." name="search">
+                                    <button value="search" type="submit"><i class="ti-search"></i></button>
+                                </form>
+                            </div>
+                            <!--/ End Search Form -->
+                        </div>
+                        <!--/ End Search Form -->
+                        <div class="mobile-nav"></div>
+                    </div>
+                    <div class="col-lg-6 col-md-7 col-12">
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="right-bar">
+                            <!-- Search Form -->
+                            <div class="sinlge-bar">
+                                <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="sinlge-bar">
+                                <a href="list_of_employee.php" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="sinlge-bar shopping">
+                                <a href="#" class="single-icon"><i class="ti-bag"></i></a>
+                            </div>
+                            <div class="sinlge-bar">
+                                <!-- login button -->
+                                <a href="logout.php" class="btn animate" style="background-color: #4CAF50; color: white; padding: 5px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 0px; cursor: pointer; border-radius: 12px;">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="header-nav-links">
-            <a href="index.html">Trang chủ</a>
-            <a href="#">Cửa hàng</a>
-            <a href="#">Giới thiệu</a>
-            <a href="#">Liên hệ</a>
-        </div>
-        <div class="header-right-section">
-            <a href="user.html"><img class="header-icon" src="img/icon_user.png" alt="Icon 1"></a>
-            <a href="#"><img class="header-icon" src="img/icon_news.png" alt="Icon 2"></a>
-            <a href="#"><img class="header-icon" src="img/icon_heart.png" alt="Icon 3"></a>
-            <a href="#"><img class="header-icon" src="img/icon_cart.png" alt="Icon 3"></a>
-            <button class="header-login-button" onclick="redirectToLogout()">
-                Đăng xuất
-            </button>
-            <script>
-                function redirectToLogout() {
-                // Add code to redirect to the login page
-                window.location.href = 'logout.php'; // Replace 'login.html' with the actual URL of your login page
-                }
-            </script>
-        </div>
-    </div>
-
-    <!-- content goes here -->
-    <div class="box"> <!--cover-box.css-->
-        <img src="img/logo_DABM_3.png" alt="Home Icon" width="50px">
-        <p class="box-text">Thông tin cá nhân</p>
-        <div>
-            <a href="user.html">Cá nhân</a>
-            <a href="user.html">> Thông tin cá nhân</a>
-        </div>
-    </div>
+    </header>
+    <img src="images/innerbanner.png" alt="banner" style="width: 100%; height: 300px;">
 
     <div class="content">
         <div class="body-container">
@@ -74,7 +137,6 @@ include("functions.php");
                             <input type="text" id="ten" name="ten">
                         </div>
                     </div>
-                    <br>
                     <!-- Email -->
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email">
@@ -84,11 +146,11 @@ include("functions.php");
                     <input type="tel" pattern="0[0-9]{9,10}" id="phone" name="phone">
 
                     <!-- Start date -->
-                    <label for="start_date">Ngày vào làm:</label> <br>
+                    <label for="start_date">Ngày vào làm:</label>
                     <input type="date" id="start_date" name="start_date">
 
                     <!-- Người quản lý -->
-                    <label for='superiorID'>ID Quản lý:</label><br>
+                    <label for='superiorID'>ID Quản lý:</label>
                     <select id='superiorID' name='superiorID'>
                     <?php
                     $query = "SELECT e.EmployeeID, CONCAT(a.FirstName, ' ', a.LastName) AS EmployeeName
@@ -116,11 +178,10 @@ include("functions.php");
                             echo "<option value='$row[EmployeeID]'>$row[EmployeeID] - $row[EmployeeName]</option>";
                         }
                     }
-                    echo "</select><br>";
+                    echo "</select>";
                     ?>   
-
                     <!-- Status -->
-                    <label for="status">Trạng thái:</label> <br>
+                    <label for="status">Trạng thái:</label>
                     <select id="status" name="status">
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
@@ -155,7 +216,7 @@ include("functions.php");
                         ?>
                     </div>
                 </form>
-                <hr style="height:1px;border-width:0;color:gray;background-color:gray"><br>
+                <hr style="height:1px;border-width:0;color:gray;background-color:gray">
                 <form id="form3">
                     <br>
                     <div class="form-group">
@@ -200,65 +261,79 @@ include("functions.php");
     </div>
     <!-- content goes here -->
 
-    <div class="footer">
-        <footer>
+    <footer class="footer">
+        <!-- Footer Top -->
+        <div class="footer-top section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-lg-4 item">
-                        <h3><img class="footer-logo" src="img/logo_DABM_2.png" alt="Logo"></h3>
-                        <ul>
-                            <br>
-                            <li>268 Lý Thường Kiệt, phường 14, quận</li>
-                            <li>10, TP Hồ Chí Minh, Việt Nam</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-2 item">
-                        <h3>LIÊN KẾT</h3>
-                        <ul>
-                            <br>
-                            <li><a href="#">Trang chủ</a></li>
-                            <br>
-                            <li><a href="#">Cửa hàng</a></li>
-                            <br>
-                            <li><a href="#">Giới thiệu về DABM</a></li>
-                            <br>
-                            <li><a href="#">Liên hệ</a></li>
-                            <br>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-2 item">
-                        <h3>VỀ DABM</h3>
-                        <ul>
-                            <br>
-                            <li><a href="#">Điều khoản</a></li>
-                            <br>
-                            <li><a href="#">Thanh toán</a></li>
-                            <br>
-                            <li><a href="#">Chính sách bảo mật</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-4 item">
-                        <h3>NHẬN THÔNG BÁO QUA EMAIL</h3>
-                        <ul>
-                            <br>
-                            <div class="p-1 rounded border">
-                                <div class="input-group">
-                                    <input type="email" placeholder="Nhập email của bạn" class="form-control border-0 shadow-0">
-                                    <div class="input-group-append">
-                                        <a class="email_signup_button" href="index.html">ĐĂNG KÝ</a>
-                                    </div>
-                                </div>
+                    <div class="col-lg-5 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer about">
+                            <div class="logo">
+                                <a href="index.html"><img src="images/logo2.png" alt="#"></a>
                             </div>
-                        </ul>
+                            <p class="call">Giải đáp thắc mắc? Gọi ngay cho chúng tôi 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer links">
+                            <h4>Thông tin</h4>
+                            <ul>
+                                <li><a href="#">Về Eshop</a></li>
+                                <li><a href="#">Faq</a></li>
+                                <li><a href="#">Điều khoản</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                                <li><a href="#">Trợ giúp</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer links">
+                            <h4>Dịch vụ</h4>
+                            <ul>
+                                <li><a href="#">Thanh toán</a></li>
+                                <li><a href="#">Hoàn trả</a></li>
+                                <li><a href="#">Chính sách giao hàng</a></li>
+                                <li><a href="#">Chính sách bảo mật</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer social">
+                            <h4>Liên hệ</h4>
+                            <!-- End Single Widget -->
+                            <ul>
+                                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                <li><a href="#"><i class="ti-twitter"></i></a></li>
+                                <li><a href="#"><i class="ti-flickr"></i></a></li>
+                                <li><a href="#"><i class="ti-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
                     </div>
                 </div>
-                <hr>
-                <p>
-                    <div style="display: flex; justify-content: space-between; opacity:1; font-size:13px; margin-bottom:0;">
-                    <div style="text-align: left;">2023 DABM. Tất cả các quyền được bảo lưu</div>
-                    <div style="text-align: right;">Quốc gia & Khu vực: Việt Nam</div>
-                </div></p>
             </div>
-        </footer>
-    </div>  
+        </div>
+        <!-- End Footer Top -->
+        <div class="copyright">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="left">
+                                <p>Copyright © 2020 - All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
 </body>
+</html>
