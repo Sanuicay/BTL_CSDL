@@ -142,7 +142,7 @@ if (mysqli_num_rows($result) > 0) {
                 <td>".$row['StartDate']."</td>
                 <td>".$row['Status']."</td>
                 <td>".$row['SuperiorName']."</td>
-                <td><a href=\"database_scripts/confirmation_2.php?id={$row['EmployeeID']}\">Xóa</a></td>
+                <td><a href=\"database_scripts/confirmation_delete_employee.php?id={$row['EmployeeID']}\">Xóa</a></td>
             </tr>";
         $i++;
     }

@@ -43,7 +43,7 @@ session_start();
                     <input type="submit" value="Submit">
                 </form>
                 <div class="button-container">
-                    <a href="add_new_employee.php"><input type="button" value="Thêm nhân viên"></a>
+                    <a href="add_employee.php"><input type="button" value="Thêm nhân viên"></a>
                 </div>
             </div>
             <div id="employeeTable"></div>
