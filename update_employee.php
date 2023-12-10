@@ -74,6 +74,7 @@ if (isset($_POST['change1']))
             $result = mysqli_query($con,$query);
         }
     }
+    echo "<script>alert('Thay đổi thông tin thành công!');</script>";
     header("Location: update_employee.php?id=$employeeID");
     
 }

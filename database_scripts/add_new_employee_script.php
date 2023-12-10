@@ -90,15 +90,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     VALUES ('$employeeID' ,'$username', '$password', '$email', '$phone', '$ho', '$ten', 20);";
         $result = mysqli_query($con,$query);
 
+        if (!$result)
+        {
+            echo "Thêm tài khoản thất bại!";
+            exit();
+        }
 
-        // CREATE TABLE IF NOT EXISTS Employee (
-        // EmployeeID VARCHAR(10) PRIMARY KEY,
-        // StartDate DATE NOT NULL,
-        // Status VARCHAR(255) NOT NULL,
-        // SuperiorID VARCHAR(10),
-        // CONSTRAINT fk_Employee_SuperiorID FOREIGN KEY (SuperiorID) REFERENCES Employee(EmployeeID)
-        //);
-        //insert the new user into the employee table with the start date. SuperiorID is default NULL
+        //insert the new user into the employee table 
         $query = "INSERT INTO employee (`EmployeeID`, `StartDate`, `Status`, `SuperiorID`)
                     VALUES ('$employeeID', '$start_date', '$employee_status', '$SuperiorID');";
         $result = mysqli_query($con,$query);

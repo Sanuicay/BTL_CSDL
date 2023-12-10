@@ -158,15 +158,6 @@ include("functions.php");
                                 INNER JOIN Account a ON e.EmployeeID = a.AccountID
                                 WHERE e.EmployeeID != '$employeeID';";
                     $result = mysqli_query($con,$query);
-                    // if the employee has no superior, display "No Superior"
-                    if ($row_employee['SuperiorID'] == NULL)
-                    {
-                        echo "<option value='NULL' selected>No Superior</option>";
-                    }
-                    else
-                    {
-                        echo "<option value='NULL'>No Superior</option>";
-                    }
                     while ($row = mysqli_fetch_assoc($result))
                     {
                         if ($row['EmployeeID'] == $row_employee['SuperiorID'])
@@ -201,18 +192,14 @@ include("functions.php");
                     <div class="form-group">
                         <?php
                         echo "<label for='ID'>ID:</label>";
-                        // Format: ACC001 -> ACC002 -> ACC003 -> ... Query the database to get the last ID
-                        $sql = "SELECT AccountID FROM account ORDER BY  AccountID DESC LIMIT 1;";
-                        $result = mysqli_query($con, $sql);
+                        // AccountID has ACC001, ACC002,... format for member, and ACS001, ACS002,... format for staff
+                        // find the last ASCxxx and increment it by 1
+                        $query = "SELECT AccountID FROM account WHERE AccountID LIKE 'ACS%' ORDER BY AccountID DESC LIMIT 1;";
+                        $result = mysqli_query($con,$query);
                         $row = mysqli_fetch_assoc($result);
                         $lastID = $row['AccountID'];
-                        $lastID = substr($lastID, 3);
-                        $lastID = intval($lastID);
-                        $lastID++;
-                        $lastID = strval($lastID);
-                        $lastID = str_pad($lastID, 3, '0', STR_PAD_LEFT);
-                        $accountID = "ACC" . $lastID;
-                        echo "<input type='text' id='ID' name='ID' value='$accountID' readonly><br>";
+                        $newID = substr($lastID, 0, 3) . sprintf('%03d', substr($lastID, 3) + 1);
+                        echo "<input type='text' id='ID' name='ID' value='$newID' readonly><br>";
                         ?>
                     </div>
                 </form>
