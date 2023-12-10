@@ -185,7 +185,7 @@ session_start();
             <label for="sortby">Quản lý</label>
             <input type="radio" id="sortby" name="sortby" value="SuperiorName">
             <input type="submit" value="Xác nhận">
-            <a href="add_new_employee.php"><input type="button" value="Thêm nhân viên"></a>
+            <a href="add_employee.php"><input type="button" value="Thêm nhân viên"></a>
         </form>
         </div>
     </div>

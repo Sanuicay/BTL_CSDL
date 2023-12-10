@@ -21,9 +21,9 @@ $result = mysqli_query($con, $query);
 
 if ($result) {
     echo "<script>alert('Xóa thành công:" . $id . "!')</script>";
-    echo "<script>window.location.href = '../manager_employee.php';</script>";
+    echo "<script>window.location.href = '../list_of_employee.php';</script>";
 } else {
     echo "<script>alert('Xóa thất bại!')</script>";
-    echo "<script>window.location.href = '../manager_employee.php';</script>";
+    echo "<script>window.location.href = '../list_of_employee.php';</script>";
 }
 ?>

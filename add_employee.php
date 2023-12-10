@@ -122,8 +122,8 @@ include("functions.php");
                     <!-- Status -->
                     <label for="status">Trạng thái:</label> <br>
                     <select id="status" name="status">
-                        <option value="Full-time">Active</option>
-                        <option value="Part-time">Inactive</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
                     </select>
               
                 </form>
@@ -160,12 +160,12 @@ include("functions.php");
                     <br>
                     <div class="form-group">
                         <label for="new-password">Mật Khẩu:</label><br>
-                        <input type="password" id="new-password" name="new-password"><br>
+                        <input type="password" id="new-password" name="new-password" pattern=".{9,}" title="Mật khẩu phải có nhiều hơn 8 ký tự."><br>
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="confirm-password">Xác nhận Mật Khẩu:</label><br>
-                        <input type="password" id="confirm-password" name="confirm-password"><br>
+                        <input type="password" id="confirm-password" name="confirm-password" pattern=".{9,}" title="Mật khẩu phải có nhiều hơn 8 ký tự."><br>
                     </div>                  
 
                 </form>
@@ -185,7 +185,10 @@ include("functions.php");
                                 data: form1Data + "&" + form2Data + "&" + form3Data,
                                 success: function(response) {
                                     alert(response);
-                                    window.location.href = 'list_of_employee.php';
+                                    if (response == "Thêm nhân viên thành công!")
+                                    {
+                                        window.location.href = 'list_of_employee.php';
+                                    }
                                 }
                             });
                         });
