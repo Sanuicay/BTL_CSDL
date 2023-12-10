@@ -15,6 +15,7 @@ session_start();
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/body.css">
 	<link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/table.css">
 </head>
 <body>
 
