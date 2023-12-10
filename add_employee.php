@@ -143,7 +143,7 @@ include("functions.php");
 
                     <!-- Phone -->
                     <label for="phone">Số Điện Thoại:</label>
-                    <input type="tel" pattern="0[0-9]{9,10}" id="phone" name="phone">
+                    <input type="tel" pattern="0[0-9]{9,10}" id="phone" name="phone" title="SĐT phải bắt đầu bằng số 0 và có 10-11 chữ số.">
 
                     <!-- Start date -->
                     <label for="start_date">Ngày vào làm:</label>

@@ -28,6 +28,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         $employee_status = $_POST['status'];
         $SuperiorID = $_POST['superiorID'];
 
+        //check if the email is valid
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            echo "Email không hợp lệ!";
+            exit();
+        }
+
+        //check if the phone number is valid, start with 0 and have 10-11 digits
+        if (!preg_match('/^[0][0-9]{9,10}$/', $phone))
+        {
+            echo "Số điện thoại không hợp lệ!";
+            exit();
+        }
+
+        //check if password is valid, at least 9 characters
+        if (strlen($password) < 9)
+        {
+            echo "Mật khẩu phải có ít nhất 9 ký tự!";
+            exit();
+        }
+
         //check if the username already exists
         $query = "SELECT Username FROM account";
         $result = mysqli_query($con,$query);
