@@ -22,7 +22,7 @@ else {
     echo "<script>
         var confirmation = confirm('XÁC NHẬN XÓA NHÂN VIÊN?');
         if (confirmation) {
-            window.location.href = 'delete_employee_data_from_ID.php?id={$id}';
+            window.location.href = 'delete_employee_data_from_ID.php?id={$EmployeeID}';
         } else {
             window.location.href = '../list_of_book.php';
         }

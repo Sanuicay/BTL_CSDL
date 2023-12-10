@@ -131,13 +131,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         }
 
         //insert the new account into the account table: AccountID, Username, Password, Email, PhoneNumber, FirstName, LastName
-        $query = "INSERT INTO account (Username, Password, Email, PhoneNumber, FirstName, LastName, Age)
-                    VALUES ('$username', '$password', '$email', '$phone', '$ho', '$ten', 20);";
+        $query = "INSERT INTO account (`AccountID`, `Username`, `Password`, `Email`, `PhoneNumber`, `FirstName`, `LastName`, `Age`)
+                    VALUES ('$employeeID' ,'$username', '$password', '$email', '$phone', '$ho', '$ten', 20);";
         $result = mysqli_query($con,$query);
 
-        //insert the new user into the employee table with the start date
-        $query = "INSERT INTO employee (AccountID, StartDate, EmployeeStatus, superiorID)
-                    VALUES ((SELECT AccountID FROM account WHERE Username = '$username'), '$start_date', '$employee_status', '$SuperiorID');";
+
+        // CREATE TABLE IF NOT EXISTS Employee (
+        // EmployeeID VARCHAR(10) PRIMARY KEY,
+        // StartDate DATE NOT NULL,
+        // Status VARCHAR(255) NOT NULL,
+        // SuperiorID VARCHAR(10),
+        // CONSTRAINT fk_Employee_SuperiorID FOREIGN KEY (SuperiorID) REFERENCES Employee(EmployeeID)
+        //);
+        //insert the new user into the employee table with the start date. SuperiorID is default NULL
+        $query = "INSERT INTO employee (`EmployeeID`, `StartDate`, `Status`, `SuperiorID`)
+                    VALUES ('$employeeID', '$start_date', '$employee_status', NULL);";
         $result = mysqli_query($con,$query);
 
         echo "<script>alert('Thêm nhân viên thành công!')</script>";
