@@ -77,7 +77,7 @@ session_start();
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+							<a href="index.php"><img src="images/logo.png" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
@@ -118,7 +118,7 @@ session_start();
 								<a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
 							</div>
 							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+								<a href="list_of_employee.php" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
 							<div class="sinlge-bar shopping">
 								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
@@ -2088,7 +2088,7 @@ session_start();
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="index.html"><img src="images/logo2.png" alt="#"></a>
+								<a href="index.php"><img src="images/logo2.png" alt="#"></a>
 							</div>
 							<p class="call">Giải đáp thắc mắc? Gọi ngay cho chúng tôi 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
 						</div>
