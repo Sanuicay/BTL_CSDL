@@ -1,10 +1,7 @@
 <?php 
 session_start();
 
-	include("connection.php");
-	include("functions.php");
-
-	$user_data = check_login($con);
+	$con = mysqli_connect("localhost:3307","root","","btl_database");
 
 	$current_year = 2023;
 	$current_month = 3;
@@ -132,7 +129,7 @@ session_start();
 							</div>
 							<div class="sinlge-bar">
 								<!-- login button -->
-								<a href="login.php" class="btn animate" style="background-color: #4CAF50; color: white; padding: 5px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 0px; cursor: pointer; border-radius: 12px;">Login</a>
+								<a href="login.php" class="btn animate" style="background-color: #4CAF50; color: white; padding: 5px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 0px; cursor: pointer; border-radius: 12px;">Đăng nhập</a>
 							</div>
 						</div>
 					</div>
@@ -165,46 +162,6 @@ session_start();
 										<ul class="sub-category">
 											<li><a href="#">Điều hòa</a></li>
 											<li><a href="#">Tủ lạnh</a></li>
-										</ul>
-									</li>
-									<li class="main-mega"><a href="#">best selling<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-										<ul class="mega-menu">
-											<li class="single-menu">
-												<a href="#" class="title-link">Shop Kid's</a>
-												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
-												</div>
-												<div class="inner-link">
-													<a href="#">Kids Toys</a>
-													<a href="#">Kids Travel Car</a>
-													<a href="#">Kids Color Shape</a>
-													<a href="#">Kids Tent</a>
-												</div>
-											</li>
-											<li class="single-menu">
-												<a href="#" class="title-link">Shop Men's</a>
-												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
-												</div>
-												<div class="inner-link">
-													<a href="#">Watch</a>
-													<a href="#">T-shirt</a>
-													<a href="#">Hoodies</a>
-													<a href="#">Formal Pant</a>
-												</div>
-											</li>
-											<li class="single-menu">
-												<a href="#" class="title-link">Shop Women's</a>
-												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
-												</div>
-												<div class="inner-link">
-													<a href="#">Ladies Shirt</a>
-													<a href="#">Ladies Frog</a>
-													<a href="#">Ladies Sun Glass</a>
-													<a href="#">Ladies Watch</a>
-												</div>
-											</li>
 										</ul>
 									</li>
 									<li><a href="#">Hãng sản xuất</a></li>

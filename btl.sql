@@ -683,6 +683,12 @@ INSERT INTO OrderDetails (OrderDetailsID, OrderID, ProductID, Quantity) VALUES
 
 -- ...Continue with similar INSERT statements for the Television, Phone, Laptop, Refrigerator, AirConditioner, WashingMachine, RiceCooker, PurchaseOrder, and SaleOrder tables.
 
+-- Create table for the BestSellingProductByCategoryAndMonth procedure
+CREATE TABLE BestSellingProductByCategoryAndMonth_Result (
+    ProductID VARCHAR(255),
+    ProductName VARCHAR(255),
+    ImageURL VARCHAR(255)
+);
 -- Procedure to get the best selling product by category and month
 DELIMITER //
 DROP PROCEDURE IF EXISTS BestSellingProductByCategoryAndMonth //
@@ -726,3 +732,6 @@ BEGIN
     WHERE rank = 1;
 END //
 DELIMITER ;
+
+-- Call the procedure
+CALL BestSellingProductByCategoryAndMonth(2023, 3);

@@ -212,7 +212,7 @@ if (isset($_POST['change2']))
                             </div>
                             <div class="sinlge-bar">
                                 <!-- login button -->
-                                <a href="logout.php" class="btn animate" style="background-color: #4CAF50; color: white; padding: 5px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 0px; cursor: pointer; border-radius: 12px;">Logout</a>
+                                <a href="logout.php" class="btn animate" style="background-color: #4CAF50; color: white; padding: 5px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 0px; cursor: pointer; border-radius: 12px;">Đăng xuất</a>
                             </div>
                         </div>
                     </div>
