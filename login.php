@@ -107,8 +107,8 @@ session_start();
 <body>
     <div id="box">
         <form method="post">
-            <h1>Login</h1>
-            <input type="text" name="user_name" placeholder="Nhập BK ID">
+            <h1>Chào mừng đến Eshop</h1>
+            <input type="text" name="user_name" placeholder="Nhập username">
             <input type="password" name="password" placeholder="********">
 			<?php 
             if (!empty($error_message)) {

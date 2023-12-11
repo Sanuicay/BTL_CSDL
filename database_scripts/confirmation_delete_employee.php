@@ -24,7 +24,7 @@ else {
         if (confirmation) {
             window.location.href = 'delete_employee_data_from_ID.php?id={$EmployeeID}';
         } else {
-            window.location.href = '../list_of_book.php';
+            window.location.href = '../list_of_employee.php';
         }
     </script>";
 }
