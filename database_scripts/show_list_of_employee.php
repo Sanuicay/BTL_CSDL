@@ -60,7 +60,7 @@ if ($sortby == "ID") {
             LEFT JOIN Employee s ON e.SuperiorID = s.EmployeeID
             LEFT JOIN Account sa ON s.EmployeeID = sa.AccountID
             WHERE REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(CONCAT(sa.FirstName, ' ', sa.LastName)), ' ', ''), '(', ''), ')', ''), ';', ''), '.', '') LIKE '%{$search}%'
-            ORDER BY EmployeeName ASC;";
+            ORDER BY SuperiorName ASC;";
     $result = mysqli_query($con, $sql);
 } else {
     $sql = "SELECT e.EmployeeID, CONCAT(a.FirstName, ' ', a.LastName) AS EmployeeName, e.StartDate, e.Status, CONCAT(sa.FirstName, ' ', sa.LastName) AS SuperiorName
